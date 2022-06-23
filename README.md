@@ -1,5 +1,5 @@
 # FRMIL
-### Official Pytorch Implementation of '[Feature Re-calibration based Multiple Instance Learning for Whole Slide Image Classification](https://conferences.miccai.org/2022/en/)' (MICCAI 2022)
+### Official Pytorch Implementation of '[Feature Re-calibration based Multiple Instance Learning for Whole Slide Image Classification](https://arxiv.org/abs/2206.10878)' (MICCAI 2022)
 
 
 > **Feature Re-calibration based Multiple Instance Learning for Whole Slide Image Classification**<br>
@@ -54,15 +54,15 @@ plots_cm16.py : used to plot feature magnitudes w/ & w/o max-norm or using FRMIL
 
 ### Datasets | Pre-process from Scratch
 * Download entire Camelyon16 WSI [CM16](https://camelyon16.grand-challenge.org/) dataset 
-* Pre-processing employs the 'wsi_tools' modules and configuration files(see. /config/cm16_tools.yml)
-  * Modify the files in /datasets/wsi/cm16 with your actual data path for all classes (example files included.)
-  * Modify paths for each step in 'cm16_tools.yml' i.e., global save location for extracted WSI tissue masks etc. (see. /config/cm16_tools.yml)
+* Pre-processing employs the `wsi_tools` modules and configuration files(see. `/config/cm16_tools.yml`)
+  * Modify the files in `/datasets/wsi/cm16` with your actual data path for all classes (example files included.)
+  * Modify paths for each step in `cm16_tools.yml` i.e., global save location for extracted WSI tissue masks etc. (see. `/config/cm16_tools.yml`)
   * Run: \
     ``` python wsi_tools/xml2mask.py --config /path/to/config ``` \
     ``` python wsi_tools/sample_spot.py --config /path/to/config ``` \
     ``` python wsi_tools/sample_spot.py --config /path/to/config ``` \
     \
-    Note: Repeat for each class type i.e., {normal, tumor}, also modify the save paths in the sample-spot configuration section. Sample_spot saves a library files for all patch locations for patch extraction (eg. tumor.pth, and normal.pth).
+    Note: Repeat for each class type i.e., `{normal, tumor}`, also modify the save paths in the sample-spot configuration section. Sample_spot saves a library files for all patch locations for patch extraction (eg. tumor.pth, and normal.pth).
 
   * Once patch-locations have been sampled: Run: \
   ``` python wsi_tools/create_lib.py --config /path/to/config ``` : This combines the library files for each class into a single file. \
@@ -73,8 +73,8 @@ plots_cm16.py : used to plot feature magnitudes w/ & w/o max-norm or using FRMIL
   ``` python wsi_tools/compute_features.py --config /path/to/config ``` : 
   
   * Modify the type of features (imagnet, simclr). 
-  Employing SimCLR features requires training a model on the extracted patches. Use ```train_simclr.py``` and ```scripts/train/wsi_simclr.sh```.
-  * Optionally, use the [DSMIL](https://github.com/binli123/dsmil-wsi) single-scale model trained SimCLR model to extract features i.e., download the weights (x20) and place them in ```/checkpoints/dsmil_models/model-v0.pth```: Use this model with option ``` dsmil_cm16 ``` in the compute features section of the configuration.
+  Employing SimCLR features requires training a model on the extracted patches. Use `train_simclr.py` and `scripts/train/wsi_simclr.sh`.
+  * Optionally, use the [DSMIL](https://github.com/binli123/dsmil-wsi) single-scale model trained SimCLR model to extract features i.e., download the weights (x20) and place them in `/checkpoints/dsmil_models/model-v0.pth`: Use this model with option ``` dsmil_cm16 ``` in the compute features section of the configuration.
   * Train your new model, extracted bags will be placed in the desired save location following the format: \
   ```
     |---- CM16/
