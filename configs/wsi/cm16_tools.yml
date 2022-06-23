@@ -1,0 +1,67 @@
+dataset: 'c16'
+# (1) XML to MASK: Create masks from xml files, including tissue masks, npy files (tissue,normal,tumor)
+xml2mask:
+  # where to save the json files, patch create if inexistant.
+  save_dir: "/home/philipchicco/projects/datasets/Camelyon16/WSI_ALL"
+  # text file containing list of slides with xml
+  xml_path_file: "./datasets/wsi/cm16/splits/C16_TRAIN_TUMOR.txt"
+  # Whole SLide file extentions
+  wsi_ext: ".tif"
+  # Level to extract the wholeslide tissue masks. (default 6: 2^6)
+  # Consider level 5
+  level: 6 
+
+# (2) Sample patch points in WSI
+sample_spot:
+  # Path to the text file of All WSI files
+  wsi_text: "./datasets/wsi/cm16/splits/C16_TEST_NORMAL.txt"
+  # extension
+  wsi_ext: ".tif"
+  # 
+  mask_path: "/home/philipchicco/projects/datasets/Camelyon16/WSI_ALL"
+  # path to save sampled points figures
+  figure_path: "/home/philipchicco/projects/datasets/Camelyon16/ALL_FIGS/test/normal"
+  # Path to the txt file to create for sample spots
+  pth_path: "/home/philipchicco/projects/datasets/Camelyon16/ALL_LIBS/test/normal.pth"
+  #The number of patches extracted from WSI (Try to match the numbers)
+  patch_number: 25000 # max number of patches per slide
+  p_size      : 512 # size of patches on thumbnails, higher sizes sample less patches
+  #The type of mask to work on (tumor/normal) : make sure to match the txt file name
+  mask_name: tissue # (tissue) | (tumor) 
+  level: 6 # 6
+  class: 'normal'
+
+# (3) Create train_lib.pth,val_lib.pth and test_lib.pth
+# Copy lib files to ./datasets/wsi/cm16/ (for example)
+create_lib:
+  # path to the folder with PTH files 
+  pth_path    : "/home/philipchicco/projects/datasets/Camelyon16/ALL_LIBS"
+  class_names : 'normal,tumor'
+  sv_dir      : "./datasets/wsi/cm16"
+
+
+compute_features:
+  # path to the folder with PTH files 
+  # feat_types [Options]: imagenet, simclr (ours), dsmil_cm16 (dsmil simclr )
+  feat_type  : simclr #imagenet
+  feature    : normal 
+  pretrained :
+  n_classes  : 2
+  batch_size : 128
+  patch_path : "/home/philipchicco/projects/datasets/Camelyon16/patches_m1_l1" #"./datasets/wsi/cm16"
+  sv_dir     : "/home/philipchicco/projects/datasets/Camelyon16/feats_simclr_m1_l1"
+
+# feature entire WSI
+featurize:
+  wsi_text: "./datasets/wsi/cm16/splits/C16_TEST_TUMOR.txt"
+  wsi_ext : ".tif"
+  sv_path : "/home/philipchicco/projects/datasets/Camelyon16/WSI_Feats/test_wo_norm/tumor"
+  mask_path: "/home/philipchicco/projects/datasets/Camelyon16/WSI_ALL"
+  # path to model (simclr pretrained resnet-18)
+  
+  # feat_types [Options]: imagenet, dsmil_cm16 (dsmil simclr ), 
+  # Leave empty to return RGB Map only
+  feat_type  : dsmil_cm16
+  model      : "./checkpoints/dsmil_models/cm16/model-v0.pth"
+  mag_level  : 0
+  
