@@ -95,14 +95,14 @@ Run ```bash scripts/train/wsi_frmil.sh ```
 ## References
 Our implementation builds upon several existing publicly available code.
 
-* [Weakly Supervised Temporal Action Loc](https://github.com/Pilhyeon/WTAL-Uncertainty-Modeling)
-* [SetTransformer-ICML'19](https://github.com/juho-lee/set_transformer)
-* [DSMIL](https://github.com/binli123/dsmil-wsi) 
-* [TransMIL](https://github.com/szc19990412/TransMIL)
-* [RENET-ICCV'21](https://github.com/dahyun-kang/renet/tree/main/datasets)
+* [Weakly Supervised Temporal Action Loc (AAAI)](https://github.com/Pilhyeon/WTAL-Uncertainty-Modeling)
+* [SetTransformer (ICML)](https://github.com/juho-lee/set_transformer)
+* [DSMIL (CVPR)](https://github.com/binli123/dsmil-wsi) 
+* [TransMIL (NeurIPS)](https://github.com/szc19990412/TransMIL)
+* [RENET (ICCV)](https://github.com/dahyun-kang/renet/tree/main/datasets)
 
 ## Citation
-If you find this code useful, please consdier citing our paper.
+If you find this code useful, please consider citing our paper.
 
 ~~~~
 @misc{chikontwe2022feature,
