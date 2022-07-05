@@ -105,12 +105,10 @@ Our implementation builds upon several existing publicly available code.
 If you find this code useful, please consdier citing our paper.
 
 ~~~~
-@misc{https://doi.org/10.48550/arxiv.2206.10878,
-  doi = {10.48550/ARXIV.2206.10878},
-  url = {https://arxiv.org/abs/2206.10878},
-  author = {Chikontwe, Philip and Nam, Soo Jeong and Go, Heounjeong and Kim, Meejeong and Sung, Hyun Jung and Park, Sang Hyun},
-  title = {Feature Re-calibration based MIL for Whole Slide Image Classification},
-  publisher = {arXiv},
-  year = {2022},
+@misc{chikontwe2022feature,
+  title={Feature Re-calibration based MIL for Whole Slide Image Classification},
+  author={Chikontwe, Philip and Nam, Soo Jeong and Go, Heounjeong and Kim, Meejeong and Sung, Hyun Jung and Park, Sang Hyun},
+  journal={arXiv preprint arXiv:2206.10878},
+  year={2022}
 }
 ~~~~
