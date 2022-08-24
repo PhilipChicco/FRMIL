@@ -12,7 +12,7 @@ from common.meter import Meter
 from common.utils import compute_accuracy, set_seed, setup_run, by, load_model
 from models.dataloaders.data_utils import dataset_builder
 from models.dataloaders.samplers import CategoriesSampler
-from models.mil_ss import AnoMIL
+from models.mil_ss import FRMIL
 from test import test_main, evaluate
 
 

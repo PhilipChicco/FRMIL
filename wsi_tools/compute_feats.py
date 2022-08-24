@@ -42,7 +42,6 @@ def get_feats(model,bag_loader,feature=None):
     
     with torch.no_grad():
         
-        m = UpConv().cuda()
         for i, data in enumerate(bag_loader):
 
             inputs = data[0].cuda()
