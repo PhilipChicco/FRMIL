@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader
 from common.meter import Meter
 from common.utils import compute_accuracy, load_model, setup_run, by
 from models.dataloaders.data_utils import dataset_builder
-from models.mil_ss import AnoMIL
+from models.mil_ss import FRMIL
 
 
 
