@@ -157,7 +157,7 @@ if __name__ == '__main__':
     args = setup_run(arg_mode='test')
 
     ''' define model ''' 
-    if args.model_name == 'anomil':
+    if args.model_name == 'frmil':
         model = FRMIL(args).cuda()
     else:
         raise ValueError('Model not found')
