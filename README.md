@@ -1,5 +1,5 @@
 # FRMIL
-### Official Pytorch Implementation of '[Feature Re-calibration based Multiple Instance Learning for Whole Slide Image Classification](https://arxiv.org/abs/2206.10878)' (MICCAI 2022)
+### Official Pytorch Implementation of '[Feature Re-calibration based Multiple Instance Learning for Whole Slide Image Classification](https://link.springer.com/chapter/10.1007/978-3-031-16434-7_41)' (MICCAI 2022) [arxiv](https://arxiv.org/abs/2206.10878)
 
 
 > **Feature Re-calibration based Multiple Instance Learning for Whole Slide Image Classification**<br>
@@ -105,10 +105,12 @@ Our implementation builds upon several existing publicly available code.
 If you find this code useful, please consider citing our paper.
 
 ~~~~
-@misc{chikontwe2022feature,
-  title={Feature Re-calibration based MIL for Whole Slide Image Classification},
+@inproceedings{chikontwe2022feature,
+  title={Feature Re-calibration Based Multiple Instance Learning for Whole Slide Image Classification},
   author={Chikontwe, Philip and Nam, Soo Jeong and Go, Heounjeong and Kim, Meejeong and Sung, Hyun Jung and Park, Sang Hyun},
-  journal={arXiv preprint arXiv:2206.10878},
-  year={2022}
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={420--430},
+  year={2022},
+  organization={Springer}
 }
 ~~~~
